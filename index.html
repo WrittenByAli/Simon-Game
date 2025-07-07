@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game - Memory Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="startup-menu" class="startup-menu">
+        <div class="startup-content">
+            <h2>Welcome to Simon Game</h2>
+            <p><strong>How to Play:</strong></p>
+            <ul>
+                <li>Watch the sequence of colors that light up.</li>
+                <li>Repeat the sequence by clicking the colored buttons in the same order.</li>
+                <li>Each round, the sequence gets longer. Try to remember as much as you can!</li>
+                <li>If you make a mistake, the game will restart.</li>
+            </ul>
+            <p class="developer">Developed by Muhammad Ali</p>
+            <button id="start-btn">Start Game</button>
+        </div>
+    </div>
+    <h1 class="level" >Press Any Button to Start</h1>
+    <div class="simon">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="yellow"></div>
+        <div class="blue"></div>
+    </div>
+    <audio id="sound" src="jump.wav"></audio>
+
+    <script>
+        document.querySelectorAll('.simon > div').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var color = btn.className;
+                var audio = document.getElementById('sound');
+                if (audio) {
+                    audio.currentTime = 0;
+                    audio.play();
+                }
+            });
+        });
+    </script>
+<footer>
+    <script src="script.js"></script>
+</footer>
+</html>
